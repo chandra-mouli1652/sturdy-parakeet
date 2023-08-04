@@ -42,7 +42,7 @@ const hasStatusProperty = (requestQuery) => {
   return requestQuery.status !== undefined;
 };
 
-app.get("/todos/", async (Request, Response) => {
+app.get("/todos/", async (request, Response) => {
   let data = null;
   let getTodosQuery = "";
   const { search_q = "", priority, status } = request.query;
@@ -93,7 +93,7 @@ app.get("/todos/", async (Request, Response) => {
   Response.send(data);
 });
 
-app.get("/todos/:todoId/", async (request, Response) => {
+app.get("/todos/:todoId/", async (request, response) => {
   const { todoId } = request.params;
   const getTodoQuery = `
        SELECT
